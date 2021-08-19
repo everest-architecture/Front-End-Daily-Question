@@ -14,10 +14,10 @@ export function webViewPanel(context: vscode.ExtensionContext, code: string) {
 	);
 
 	const template = {
-		background: "#fff",
+		background: "#101213",
 		width: "auto",
 		height: "auto",
-		borderRadius: "25px",
+		borderRadius: "5px",
 	};
 
 	// 获取npm包
@@ -42,7 +42,9 @@ function getWebviewContent(
 				<title>Cat Coding</title>
 		</head>
 		<body>
-				<canvas id="canvas"></canvas>
+			<div id="back" style="background-color: #cfd2d1; height: 100vh; width: 100vw; padding: 56px;">
+				<canvas id="canvas" style="box-shadow: 0px 6px 10px 4px #333; border-radius: 8px;"></canvas>
+			</div>		
 				<script src="${scriptUri}"></script>
 				<script type="module">
 				(function() {
@@ -59,7 +61,7 @@ function getWebviewContent(
 						a.setAttribute('download', 'shareImg')
 						a.click()
 						document.body.removeChild(a);
-					}, 500);
+					}, 900);
 				}())
 				</script>
 		</body>

@@ -21,14 +21,15 @@ const processContent = (input: string, START = 0, END = 1000) => {
 
 		let start = r.indexOf("*[interview]: start");
 		let end = r.indexOf("*[interview]: end");
+		let title = r.slice(0, r.indexOf("\n", r.indexOf("\n") + 1));
+		title = "  " + title;
 
-		r = r.slice(start + 19, end);
+		r = title.concat(r.slice(start + 19, end));
 
 		// Otherwise resolve with the correct section
 		resolve(r);
 	});
 };
-
 
 export async function share(
 	content: string,
@@ -36,6 +37,7 @@ export async function share(
 ): Promise<void> {
 	try {
 		vscode.window.showInformationMessage("正在生成图片，请稍等...");
+
 		const processedContent = await processContent(content);
 
 		webViewPanel(context, processedContent);
