@@ -7,6 +7,7 @@ import { postAnswer } from "./command/postAnswer";
 import { Interview } from "./treeview/interviewTreeView";
 import { login } from "./command/login";
 import { YQauth } from "./command/YQauth";
+import { share } from "./command/share";
 
 import { SidebarProvider } from "./webview/EnglishSiderBarWebview";
 import {
@@ -66,6 +67,11 @@ export async function activate(
 		commands.registerCommand("zffe.YQlogin", () => {
 			YQauth(context);
 		});
+
+		commands.registerCommand("interview.sharePoster", (content) => {
+			share(content, context);
+		});
+
 		commands.registerCommand("zffe.YQsave", (doc, content) => {
 			saveAnswer(doc, content, context);
 		});
