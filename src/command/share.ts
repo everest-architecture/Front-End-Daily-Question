@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { webViewPanel } from "../webview/shareWeb";
+import { webViewPanel } from "../webview/ShareCodeWebview";
 
 // 获取页面中代码的方法
 const processContent = (input: string, START = 0, END = 1000) => {
@@ -36,7 +36,7 @@ export async function share(
 	context: vscode.ExtensionContext
 ): Promise<void> {
 	try {
-		vscode.window.showInformationMessage("正在生成图片，请稍等...");
+		// vscode.window.showInformationMessage("正在生成图片，请稍等...");
 
 		const processedContent = await processContent(content);
 
